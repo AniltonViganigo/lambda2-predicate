@@ -19,8 +19,8 @@ public class Program {
 		list.add(new Product("Tablet", 250.0));
 		list.add(new Product("HD Case", 80.55));
 		
-		//Reference method with static method
-		list.removeIf(Product :: staticProductPredicate);
+		//Reference method with method no static
+		list.removeIf(Product :: nostaticProductPredicate);
 		
 		for (Product p : list) {
 			System.out.println(p);
