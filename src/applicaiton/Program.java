@@ -3,6 +3,7 @@ package applicaiton;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.function.Predicate;
 
 import entities.Product;
 import util.ProductPredicate;
@@ -19,8 +20,11 @@ public class Program {
 		list.add(new Product("Tablet", 250.0));
 		list.add(new Product("HD Case", 80.55));
 		
-		//Reference method with method no static
-		list.removeIf(Product :: nostaticProductPredicate);
+		double min = 100.0;
+		
+		Predicate<Product> pred = p -> p.getPrice() >= min;
+
+		list.removeIf(pred);
 		
 		for (Product p : list) {
 			System.out.println(p);
